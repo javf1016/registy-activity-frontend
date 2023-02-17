@@ -1,0 +1,37 @@
+<div class="container">
+    <form #activityForm = "ngForm">
+        <mat-card class="card">
+            <mat-card-header>
+              <mat-card-title>Activity Details</mat-card-title>
+            </mat-card-header>
+            <tr>
+                <mat-card-content>
+                    <div>
+                      <div>
+                        <label><b>ID : </b> {{ activity.activityId }}</label>
+                      </div>
+                      <div>
+                        <label><b>Name : </b> {{ activity.name }}</label>
+                      </div>
+                      <div>
+                        <label><b>Description : </b> {{ activity.description }}</label>
+                      </div>
+                      <div>
+                        <label><b>Date Estimated Time Execution : </b> {{ activity.dateEstimatedTimeExecution }}</label>
+                      </div>
+                      <div>
+                        <label><b>Day Delay : </b> {{ activity.dayDelay }}</label>
+                      </div>
+                      <div>
+                        <label><b>Status : </b> {{ activity.status }}</label>
+                      </div>
+                      <div>
+                        <label><b>Owner : </b> {{ activity.employeeId.firstName }} {{ activity.employeeId.lastName }}</label>
+                      </div>
+                    </div>
+                    
+                </mat-card-content>
+            </tr>
+        </mat-card>
+    </form>
+</div>

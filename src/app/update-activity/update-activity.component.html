@@ -1,0 +1,92 @@
+<div class="container">
+    <form (ngSubmit)= "onSubmit()" #activityForm = "ngForm">
+        <mat-card class="card">
+            <mat-card-header>
+              <mat-card-title>Registry Activity</mat-card-title>
+            </mat-card-header>
+            <tr>
+                <mat-card-content>
+                    <table class="example-full-width" cellspacing="0">
+                        <tr>
+                          <td>
+                            <mat-form-field class="example-full-width">
+                              <mat-label>Name Activity</mat-label>
+                              <input matInput id="name"
+                                [(ngModel)]="activity.name"
+                                name="name"
+                                required
+                                minlength="3"
+                                maxlength="20"
+                                placeholder="Type Name Activity"
+                                #name = "ngModel"
+                              >
+                              <div class="alert alert-danger" *ngIf= "name.invalid && (name.dirty || name.touched)">
+                                    <div *ngIf = "name.errors['required']">
+                                    </div>
+                                    <div *ngIf = "name.errors['minlength']">
+                                        The name must contain at least 3 characters
+                                    </div>
+                                    <div *ngIf = "name.errors['maxlength']">
+                                        The name must have a maximum of 20 characters
+                                    </div>
+                                </div>
+                            </mat-form-field>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <mat-form-field class="example-full-width">
+                              <mat-label>Description</mat-label>
+                              <textarea matInput placeholder="Ex. Activity is..." id="name"
+                                [(ngModel)]="activity.description"
+                                name="description"
+                                required
+                                minlength="20"
+                                maxlength="50"
+                                placeholder="Type Description"
+                                #description = "ngModel"
+                              ></textarea>
+                              <div class="alert alert-danger" *ngIf= "description.invalid && (description.dirty || description.touched)">
+                                <div *ngIf = "description.errors['required']">
+                                    Type Description Activity
+                                    </div>
+                                    <div *ngIf = "description.errors['minlength']">
+                                        The description must contain at least 20 characters
+                                    </div>
+                                    <div *ngIf = "description.errors['maxlength']">
+                                        The description must have a maximum of 50 characters
+                                    </div>
+                                </div>
+                            </mat-form-field>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <mat-card class="demo-inline-calendar-card">
+                                <mat-calendar [(selected)]="activity.dateEstimatedTimeExecution" [(ngModel)]="activity.dateEstimatedTimeExecution"
+                                name="dateEstimatedTimeExecution"
+                                required></mat-calendar>
+                              </mat-card>
+                              <p>Selected date: {{ activity.dateEstimatedTimeExecution | date: 'dd/MM/yyyy HH:mm:ss' }}</p>
+                          </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Assigned User</mat-label>
+                                    <mat-select [(ngModel)]="activity.employeeId" name="employeeId">
+                                      <mat-option *ngFor="let employee of employees" [value]="employee">
+                                        {{employee.firstName}} {{employee.lastName}}
+                                      </mat-option>
+                                    </mat-select>
+                                  </mat-form-field>                              
+                            </td>   
+                        </tr>
+                      </table>
+                      <br>
+                </mat-card-content>
+            </tr>
+            <button mat-raised-button color="primary" [disabled]="!activityForm.form.valid || !activity.dateEstimatedTimeExecution || !activity.employeeId">Save</button>
+        </mat-card>
+    </form>
+</div>
