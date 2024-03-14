@@ -19,7 +19,16 @@ export class AppComponent {
     {
       name: 'Registry Activity',
       router: ['registry-activity']
+    },
+    {
+      name: 'Login',
+      router: ['login']
+    },
+    {
+      name: 'Generacion Turnos',
+      router: ['generacion-turnos']
     }
+
   ]
 
   ngOnInit(): void {

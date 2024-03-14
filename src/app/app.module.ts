@@ -22,6 +22,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { UpdateActivityComponent } from './update-activity/update-activity.component';
 import { DetailActivityComponent } from './detail-activity/detail-activity.component';
+import { LoginComponent } from './login/login.component';
+import { GeneracionTurnosComponent } from './generacion-turnos/generacion-turnos.component';
 
 
 
@@ -32,6 +34,8 @@ import { DetailActivityComponent } from './detail-activity/detail-activity.compo
     RegistryActivityComponent,
     UpdateActivityComponent,
     DetailActivityComponent,
+    LoginComponent,
+    GeneracionTurnosComponent,
     
   ],
   imports: [
